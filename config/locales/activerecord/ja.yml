@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      kanji: '漢字'
+      base_yoji: '四字熟語'
+      slot_yoji: '四字熟語ット'
+    attributes:
+      user:
+        name: 'ニックネーム'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認用)'
+      kanji: 
+        letter: '文字'
+      base_yoji:
+        first_kanji: '1文字目'
+        second_kanji: '2文字目'
+        third_kanji: '3文字目'
+        fourth_kanji: '4文字目'
+      slot_yoji:   
+        first_kanji: '1文字目'
+        second_kanji: '2文字目'
+        third_kanji: '3文字目'
+        fourth_kanji: '4文字目'
+    

@@ -1,0 +1,24 @@
+<header>
+  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= t('.nav_top') %>
+    <% end %>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto main-nav align-items-center">
+        <li class="nav-item">
+          <%= link_to 'スロット', '#', class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'みんなの四字熟語', '#', class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '四字熟語', '#', class: "nav-link" %>
+        </li>
+        <p ids="js-login_out-nav">
+          <%= render 'shared/login_status' %>
+        </p>
+      </ul>
+    </div>
+  </nav>
+</header>

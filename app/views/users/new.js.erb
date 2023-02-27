@@ -1,0 +1,9 @@
+if(document.getElementById("js-modal_login_signup") != null){
+  <%# モーダルの二重起動防止 %>
+  $("#js-modal_login_signup").modal("hide");
+}
+$("#js-modal_space").html("<%= escape_javascript(render partial: 'shared/modal_login_signup') %>");
+$("#js-modal_login_signup").modal("show");
+var signup_tab = document.querySelector("#nav-signup-tab");
+var tab = new bootstrap.Tab(signup_tab);
+tab.show();

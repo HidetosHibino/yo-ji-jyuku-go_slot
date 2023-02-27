@@ -1,3 +1,18 @@
- @import "bootstrap";
- @import 'font-awesome-sprockets';
- @import 'font-awesome';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
