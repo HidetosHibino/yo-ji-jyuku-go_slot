@@ -1,0 +1,21 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    register: '登録'
+    cancel: 'キャンセル'
+    message:
+      require_login: 'ログインが必要です'
+  shared:
+    header:
+      nav_top: '四字熟語ット'
+  user_sessions:
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy: 
+      success: 'ログアウトしました'
+  users:
+    create:
+      success: 'ユーザーを作成しました'
+      fail: 'ユーザー作成に失敗しました'

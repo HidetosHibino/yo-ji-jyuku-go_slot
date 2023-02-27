@@ -1,0 +1,12 @@
+
+<% if false %><%# 以下、ユーザ作成時はログインフォームを表示させるため、コメントアウト %>
+  $("#flash_message").html("<%= escape_javascript(render partial: 'shared/flash_message') %>");
+  $("#login_out-nav").html("<%= escape_javascript(render partial: 'shared/login_status') %>");
+  $('#js-modal_login_signup').modal('hide');
+<% end %>
+if(document.getElementById("js-modal_login_signup") != null){
+  $("#js-modal_login_signup").modal("hide");
+  $("#js-modal_login_signup").remove();
+}
+$("#js-modal_space").html("<%= escape_javascript(render partial: 'shared/modal_login_signup') %>");
+$("#js-modal_login_signup").modal("show");

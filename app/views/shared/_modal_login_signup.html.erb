@@ -1,0 +1,55 @@
+<div id='js-modal_login_signup' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-l">
+    <div class="modal-content">
+      <%= render 'shared/flash_message' %>
+      <div class="modal-body">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button
+              class="nav-link active"
+              id="nav-login-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-login"
+              type="button"
+              role="tab"
+              aria-controls="nav-login"
+              aria-selected="true"
+            >
+              <%= t('defaults.login') %>
+            </button>
+            <button
+              class="nav-link"
+              id="nav-signup-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-signup"
+              type="button"
+              role="tab"
+              aria-controls="nav-signup"
+              aria-selected="false"
+            >
+              <%= t(User.model_name.human) + t('defaults.register') %>
+            </button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="nav-login"
+            role="tabpanel"
+            aria-labelledby="nav-login-tab"
+          >
+            <%= render partial: "user_sessions/login_tab" %>  
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-signup"
+            role="tabpanel"
+            aria-labelledby="nav-signup-tab"
+          >
+            <%= render partial: "users/signup_tab" %>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
