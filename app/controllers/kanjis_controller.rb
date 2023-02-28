@@ -1,7 +1,7 @@
 class KanjisController < ApplicationController
   def index
     @kanjis = Kanji.all.page(params[:page])
-    # TODO: 2件ぐらい使用例を出したい。。。
+    # 2件ぐらい使用例を出したい。。。
   end
 
   def show
