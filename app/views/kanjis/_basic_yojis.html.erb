@@ -1,0 +1,8 @@
+<% if basic_yojis.present? %>
+<div class="row">
+  <%= render partial:'basic_yojis/basic_yoji', collection: basic_yojis %>
+  <%= paginate basic_yojis, param_name: 'basic_yojis_page', remote: true %>
+</div>
+<% else %>
+  使われていません
+<% end %>

@@ -15,5 +15,4 @@ class Kanji < ApplicationRecord
   has_many :slot_second_kanji, class_name: 'slot_yoji', foreign_key: 'second_kanji_id', dependent: :destroy
   has_many :slot_third_kanji, class_name: 'slot_yoji', foreign_key: 'third_kanji_id', dependent: :destroy
   has_many :slot_fourth_kanji, class_name: 'slot_yoji', foreign_key: 'fourth_kanji_id', dependent: :destroy
-
 end

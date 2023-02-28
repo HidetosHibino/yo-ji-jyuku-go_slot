@@ -1,0 +1,8 @@
+<% slot_yojis.prepend? %>
+  <div class="row">
+    <%= render partial: 'slot_yojis/slot_yoji', collection: slot_yojis %>
+    <%= paginate slot_yojis, param_name: 'slot_yojis_page', remote: true %>
+  </div>
+<% else %>
+  まだ使われていません
+<% end %>
