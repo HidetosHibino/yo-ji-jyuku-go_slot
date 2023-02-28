@@ -10,19 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_26_102240) do
+ActiveRecord::Schema.define(version: 2023_02_27_094744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "basic_yojis", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "first_kanji_id"
-    t.bigint "second_kanji_id"
-    t.bigint "third_kanji_id"
-    t.bigint "fourth_kanji_id"
+    t.bigint "first_kanji_id", null: false
+    t.bigint "second_kanji_id", null: false
+    t.bigint "third_kanji_id", null: false
+    t.bigint "fourth_kanji_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "meaning"
+    t.string "sound"
+    t.string "name", null: false
     t.index ["first_kanji_id"], name: "index_basic_yojis_on_first_kanji_id"
     t.index ["fourth_kanji_id"], name: "index_basic_yojis_on_fourth_kanji_id"
     t.index ["second_kanji_id"], name: "index_basic_yojis_on_second_kanji_id"
@@ -34,6 +37,7 @@ ActiveRecord::Schema.define(version: 2023_02_26_102240) do
     t.string "letter", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["letter"], name: "index_kanjis_on_letter", unique: true
   end
 
   create_table "slot_yojis", force: :cascade do |t|

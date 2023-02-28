@@ -1,0 +1,13 @@
+// Place all the styles related to the basic_yojis controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.card-yoji-meaning{
+  max-height: 48px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.card-yoji-wrapper{
+  height: 224.8px;
+}
