@@ -4,11 +4,20 @@ ja:
     logout: 'ログアウト'
     register: '登録'
     cancel: 'キャンセル'
+    nav_show: "詳細"
+    nav_edit: "編集"
+    nav_delete: "削除"
     message:
       require_login: 'ログインが必要です'
+      created: "%{item}を投稿しました"
+      not_created: "%{item}を投稿できませんでした"
+      updated: "%{item}を編集しました"
+      not_updated: "%{item}を編集できませんでした"
+      deleted:  "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
   shared:
     header:
-      nav_top: '四字熟語ット'
+      nav_top: '四字熟ロット'
   user_sessions:
     create:
       success: 'ログインしました'
@@ -19,3 +28,42 @@ ja:
     create:
       success: 'ユーザーを作成しました'
       fail: 'ユーザー作成に失敗しました'
+  basic_yojis:
+    index:
+      title: '📕登録されている四字熟語📕'
+      no_result: 'まだ1件も登録されていません'
+    new:
+      title: '✏️四字熟語登録✏️'
+      explain: |
+        既存の四字熟語を登録します。
+        登録した四字熟語の漢字はスロットに登場するようになります。
+    show:
+      title: '🔎四字熟語詳細🔎'
+    edit:
+      title: '✏️四字熟語編集✏️'
+      explain: |
+        登録した四字熟語を編集します。
+        登録した四字熟語の漢字はスロットに登場するようになります。
+  kanjis:
+    index:
+      title: '漢字一覧'
+      explain: |
+        四字熟ロットで使われる漢字一覧です。
+        四字熟語を登録することで自動的に漢字が追加されます。
+    show:
+      title: "%{item}を使った四字熟語"
+  slot_yojis:
+    index:
+      title: '📕四字熟ロット一覧📕'
+    new:
+      title: '🎰四字熟ロット作成🎰'
+    confirm:
+      title: '読みと意味をつけられます'
+    show:
+      title: '🔎四字熟ロット詳細🔎'
+      meaning: '意味'
+      sample: '例文'
+    edit: 
+      title: '✏️四字熟ロット編集✏️'
+      explain: |
+        四字熟ロットの読みと意味を編集できます。

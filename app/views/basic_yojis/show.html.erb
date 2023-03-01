@@ -1,0 +1,30 @@
+<% content_for(:title, t('.title')) %>
+<section class="text-center container">
+  <div class="row py-lg-5">
+      <div class="py-2">
+        <p class="lead text-muted"><%= @basic_yoji.sound %></p>
+      </div>
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-bolder"><b><%= @basic_yoji.decorate.jyukugo_mode %></b></h1>
+      <% if current_user&.own?(@basic_yoji) %>
+        <%= render 'crud_menus', { basic_yoji: @basic_yoji } %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row mb-sl-2 mb-md-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <% if @basic_yoji.meaning.present? %>
+        <p class="lead"><%= @basic_yoji.meaning %></p>
+      <% else %>
+        <p class="text-center">意味が投稿されていません</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-10">
+      <%= render 'shared/related_kanji', {related_kanji: @related_kanji}%>    
+    </div>
+  </div>
+</div>

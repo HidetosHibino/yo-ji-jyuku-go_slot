@@ -1,0 +1,2 @@
+module SlotYojisHelper
+end

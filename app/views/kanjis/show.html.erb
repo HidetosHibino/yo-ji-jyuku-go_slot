@@ -1,0 +1,32 @@
+<% content_for(:title, t('.title', item: @kanji.letter)) %>
+<section class="text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-bolder"><b><%= @kanji.letter %></b></h1>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-10">
+      <div class="row nav-items-header justify-content-md-center my-3 border-bottom">
+        <ul class="nav nav-pills nav-fill rounded">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#slot_yoji" data-bs-toggle="tab"><%= SlotYoji.model_name.human %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#basic_yoji" data-bs-toggle="tab"><%= BasicYoji.model_name.human %></a>
+          </li>
+        </ul>
+      </div> 
+      <div class="row tab-content justify-content-md-center">
+        <div id="slot_yoji" class="tab-pane active">
+          <%= render 'slot_yojis', { slot_yojis: @slot_yojis } %>
+        </div>
+        <div id="basic_yoji" class="tab-pane">
+          <%= render 'basic_yojis', { basic_yojis: @basic_yojis } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

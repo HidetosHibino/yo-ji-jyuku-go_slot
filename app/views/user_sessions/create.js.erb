@@ -1,4 +1,4 @@
 $('#flash_message').html("<%= escape_javascript( render 'shared/flash_message')%>");
-$('#js-login_out-nav').html("<%= escape_javascript( render 'shared/flash_message') %>");
+$('#js-login_out-nav').html("<%= escape_javascript( render 'shared/login_status') %>");
 $('#js-modal_login_signup').modal("hide");
 $('#js-modal_login_signup').remove;

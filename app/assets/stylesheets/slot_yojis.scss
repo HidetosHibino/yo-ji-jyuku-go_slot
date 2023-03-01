@@ -1,0 +1,46 @@
+// Place all the styles related to the slot_yojis controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ul{
+  list-style: none;
+}
+.slot{
+  width: 90%;
+  height: 200px;
+  overflow: hidden;
+  margin: auto;
+  border: solid 7px #aeaeae;
+}
+#slot-frame{
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+.reels{
+  width: 25%;
+  position: absolute;
+
+  &:nth-child(1){
+    left: 0;
+  }
+  &:nth-child(2){
+    left: 25%;
+  }
+  &:nth-child(3){
+    right: 25%;
+  }
+  &:nth-child(4){
+    right: 0;
+  }
+}
+.reel{
+  height: 100px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #333;
+}
+.stop-btn-wrapper{
+  margin: auto;
+}

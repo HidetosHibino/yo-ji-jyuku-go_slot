@@ -1,0 +1,18 @@
+<% content_for(:title, t('.title')) %>
+<section class="text-left container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light"><%= t('.title') %></h1>
+      <div class="py-2">
+        <p class="lead text-muted"><%= simple_format(t('.explain')) %></p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <%= render 'form', { basic_yoji: @basic_yoji } %>
+    </div>
+  </div>
+</div>

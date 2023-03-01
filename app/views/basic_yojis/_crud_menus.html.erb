@@ -1,0 +1,12 @@
+<ul class='crud-menu-btn list-inline float-right'>
+  <li class="list-inline-item" title=<%= t('defaults.nav_edit') %>>
+    <%= link_to edit_basic_yoji_path(basic_yoji), id: "button-edit-#{basic_yoji.id}" do %>
+      <%= icon 'fa', 'pen' %>
+    <% end %>
+  </li>
+  <li class="list-inline-item" title=<%= t('defaults.nav_delete') %>>
+    <%= link_to basic_yoji_path(basic_yoji), id: "button-delete-#{basic_yoji.id}", method: :delete, data: {confirm: t('defaults.message.delete_confirm') } do %>
+      <%= icon 'fas', 'trash' %>
+    <% end %>
+  </li>
+</ul>

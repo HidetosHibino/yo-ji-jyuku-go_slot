@@ -1,0 +1,36 @@
+<% content_for(:title, t('.title')) %>
+<section class="text-left container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light"><%= t('.title') %></h1>
+      <div class="py-2">
+        <p class="lead text-muted"><%= simple_format(t('.explain')) %></p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1>
+        <%= @slot_yoji.decorate.jyukugo_mode %>
+      </h1>
+      <div class="my-5">
+        <%= form_with model: @slot_yoji , local: true do |f| %>
+          <div class="mb-3">
+            <%= f.label :sound %>
+            <%= f.text_field :sound, class:'form-control', pattern:"[\u3041-\u3096]*"  %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :meaning %>
+            <%= f.text_area :meaning, class:'form-control' %>
+          </div>
+          <div class="actions text-center m-5">
+            <%= f.submit class:'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+      

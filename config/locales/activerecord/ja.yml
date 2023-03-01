@@ -1,10 +1,19 @@
 ja:
   activerecord:
+    errors:
+      models:
+        kanji:
+          letter:
+            not_kanji_letter: '漢字でない文字が含まれています'
+        basic_yoji:
+          attributes:
+            sound:
+              not_sound_hiragana: 'はひらがなで入力してください'
     models:
       user: 'ユーザー'
       kanji: '漢字'
-      base_yoji: '四字熟語'
-      slot_yoji: '四字熟語ット'
+      basic_yoji: '四字熟語'
+      slot_yoji: '四字熟ロット'
     attributes:
       user:
         name: 'ニックネーム'
@@ -13,14 +22,21 @@ ja:
         password_confirmation: 'パスワード(確認用)'
       kanji: 
         letter: '文字'
-      base_yoji:
+      basic_yoji:
         first_kanji: '1文字目'
         second_kanji: '2文字目'
         third_kanji: '3文字目'
         fourth_kanji: '4文字目'
+        meaning: '意味'
+        sound: '読み'
+        name: '四字熟語'
+        # カラムとしてはないが画面表示のため
+        jyukugo: '熟語'
       slot_yoji:   
         first_kanji: '1文字目'
         second_kanji: '2文字目'
         third_kanji: '3文字目'
         fourth_kanji: '4文字目'
+        sound: '読み'
+        meaning: '意味'
     

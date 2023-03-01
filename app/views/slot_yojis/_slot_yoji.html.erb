@@ -1,0 +1,31 @@
+<div class="col-sm-6 col-lg-3 mb-3">
+  <div class="basic-yoji<%= slot_yoji.id %>">
+    <div class="card card-yoji-wrapper">
+      <div class="card-body position-relative">
+        <h4 class="card-title mt-sm-1 mt-lg-2 mb-sm-1 mb-lg-2">
+          <b><%= slot_yoji.decorate.jyukugo_mode %></b>
+        </h4>
+        <p class="card-subtitle mb-sm-2 mb-lg-4 text-muted"><%= slot_yoji.sound %></p>
+        <div class="menu position-absolute bottom-0">
+          <% if current_user.own?(slot_yoji) %>
+            <%# TODO: 編集ページ %>
+          <% else %>
+            <%# TODO: bookmarkページ %>
+          <% end %>
+          <p class="card-text card-yoji-meaning"><%= slot_yoji.meaning %></p>
+
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <%= link_to t('defaults.nav_show'), slot_yoji_path(slot_yoji) %>
+              <%# <%= board.user.decorate.full_name %> %>
+            </li>
+            <li class="list-inline-item">
+              <%= icon 'far', 'user' %>
+              <%# <%= l board.created_at, format: :long %> %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

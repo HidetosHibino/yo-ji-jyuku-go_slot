@@ -1,0 +1,7 @@
+console.log("confirm.js");
+if(document.getElementById("js-modal_confirm") != null){
+  $("#js-modal_confirm").modal("hide");
+  $("#js-modal_confirm").remove();
+}
+$("#js-modal_space").html("<%= escape_javascript(render partial: 'confirm', locals: {slot_yoji: @slot_yoji}) %>");
+$("#js-modal_confirm").modal("show");

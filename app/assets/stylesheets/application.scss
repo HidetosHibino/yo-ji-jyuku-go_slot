@@ -1,6 +1,8 @@
 @import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import 'basic_yojis';
+@import 'slot_yojis';
 html {
   position: relative;
   min-height: 100%;
@@ -14,5 +16,8 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  height: 48px;
+}
+.suggest_twitter:hover{
+  cursor: pointer;
 }
