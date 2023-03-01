@@ -1,0 +1,7 @@
+<%= form_with model:slot_yoji, url: confirm_slot_yojis_url, remote: true do |f| %>
+  <%= f.hidden_field :first_kanji_id, class: 'form-control' %>
+  <%= f.hidden_field :second_kanji_id, class: 'form-control' %>
+  <%= f.hidden_field :third_kanji_id, class: 'form-control' %>
+  <%= f.hidden_field :fourth_kanji_id, class: 'form-control' %>
+  <%= f.submit class:'btn btn-primary rounded-pill m-3', style:'width:120px;height:60px;font-size:20px;' %>
+<% end %>

@@ -1,0 +1,65 @@
+<% content_for(:title, t('.title')) %>
+<section class="text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light"><%= t('.title') %></h1>
+    </div>
+  </div>
+</section>
+<div class="container text-center">
+	<input type="hidden" id="json_kanjis" value="<%= @json_kanjis %>">
+  <div class="slot text-center mt-3 mb-3">
+    <div class="slot-frame" id="slot-frame">
+      <ul class="reels m-0 p-0">
+      </ul>
+      <ul class="reels m-0 p-0">               
+      </ul>
+      <ul class="reels m-0 p-0">
+      </ul>
+      <ul class="reels m-0 p-0">
+      </ul>
+    </div>
+  </div>
+
+  <div class="row justify-content-center stop-btn-wrapper">
+    <div class="col-10">
+      <div class="row">
+        <div class="col-3">
+          <button type="button" class="stop-btn btn btn-danger rounded-pill m-1 px-4" data-val="0" disabled="true"><p class="h4">STOP</p></button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="stop-btn btn btn-danger rounded-pill m-1 px-4" data-val="1" disabled="true"><p class="h4">STOP</p></button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="stop-btn btn btn-danger rounded-pill m-1 px-4" data-val="2" disabled="true"><p class="h4">STOP</p></button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="stop-btn btn btn-danger rounded-pill m-1 px-4" data-val="3" disabled="true"><p class="h4">STOP</p></button>
+        </div>
+        
+
+        <%# <button type="button" class="col-3 stop-btn btn btn-danger rounded-pill" data-val="0" disabled="true">STOP</button>
+        <button type="button" class="col-3 stop-btn btn btn-danger rounded-pill" data-val="1" disabled="true">STOP</button>
+        <button type="button" class="col-3 stop-btn btn btn-danger rounded-pill" data-val="2" disabled="true">STOP</button>
+        <button type="button" class="col-3 stop-btn btn btn-danger rounded-pill" data-val="3" disabled="true">STOP</button> %>
+      </div>
+    </div>
+  </div>
+
+	<div class="start-btn-wrapper text-center">
+		<button type="button" id="start-btn" class="btn btn-primary rounded-pill m-3 px-4"><p class="h3">START</p></button>
+	</div>
+
+	<div class="submit-form text-center" id="submit-form" style="display:none;">
+		<%= render 'form',  { slot_yoji: @slot_yoji } %>
+	</div>
+
+
+
+  </div>
+
+  
+
+
+</div>
+<%= javascript_include_tag 'slot' %>

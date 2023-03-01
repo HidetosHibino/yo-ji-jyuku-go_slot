@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'slot_yojis/index'
+  get 'slot_yojis/new'
+  get 'slot_yojis/destroy'
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'
@@ -9,4 +12,9 @@ Rails.application.routes.draw do
   resources :basic_yojis, only: %i[index new create show edit update destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :kanjis, onlt: %i[index show]
+  resources :slot_yojis, only: %i[index new show create edit update destroy] do
+    collection do
+      post :confirm
+    end
+  end
 end

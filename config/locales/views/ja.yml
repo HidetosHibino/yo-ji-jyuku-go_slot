@@ -52,4 +52,18 @@ ja:
         四字熟語を登録することで自動的に漢字が追加されます。
     show:
       title: "%{item}を使った四字熟語"
- 
+  slot_yojis:
+    index:
+      title: '📕四字熟ロット一覧📕'
+    new:
+      title: '🎰四字熟ロット作成🎰'
+    confirm:
+      title: '読みと意味をつけられます'
+    show:
+      title: '🔎四字熟ロット詳細🔎'
+      meaning: '意味'
+      sample: '例文'
+    edit: 
+      title: '✏️四字熟ロット編集✏️'
+      explain: |
+        四字熟ロットの読みと意味を編集できます。

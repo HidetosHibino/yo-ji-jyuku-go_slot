@@ -1,0 +1,35 @@
+<div id='js-modal_confirm' class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('.title') %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="text-center">
+          <%= @slot_yoji.decorate.jyukugo_mode %>
+        </h1>
+        <div class="my-5">
+          <%= form_with model: @slot_yoji , remote: true do |f| %>
+            <%= f.hidden_field :first_kanji_id, class: 'form-control' %>
+            <%= f.hidden_field :second_kanji_id, class: 'form-control' %>
+            <%= f.hidden_field :third_kanji_id, class: 'form-control' %>
+            <%= f.hidden_field :fourth_kanji_id, class: 'form-control' %>
+            <div class="mb-3">
+              <%= f.label :sound %>
+              <%= f.text_field :sound, class:'form-control', pattern:"[\u3041-\u3096]*" %>
+            </div>
+            <div class="mb-3">
+              <%= f.label :meaning %>
+              <%= f.text_area :meaning, class:'form-control' %>
+            </div>
+            <div class="actions text-center m-5">
+              <%= f.submit class:'btn btn-primary' %>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

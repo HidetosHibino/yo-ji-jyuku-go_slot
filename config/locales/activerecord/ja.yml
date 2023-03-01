@@ -37,4 +37,6 @@ ja:
         second_kanji: '2文字目'
         third_kanji: '3文字目'
         fourth_kanji: '4文字目'
+        sound: '読み'
+        meaning: '意味'
     

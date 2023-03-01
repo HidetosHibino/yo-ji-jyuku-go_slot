@@ -22,62 +22,9 @@
       <% end %>
     </div>
   </div>
-  <div class="row mt-sl-2 mt-md-5">
-    <div class="row nav-items-header justify-content-md-center mb-3">
-      <p class="col-10 p-0">使われている漢字から四字熟語を探す</p>
-      <ul class="nav nav-pills nav-fill col-10 border rounded">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#first_kanji" data-bs-toggle="tab"><%= @basic_yoji.first_kanji.letter %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#second_kanji" data-bs-toggle="tab"><%= @basic_yoji.second_kanji.letter %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#third_kanji" data-bs-toggle="tab"><%= @basic_yoji.third_kanji.letter %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#fourth_kanji" data-bs-toggle="tab"><%= @basic_yoji.fourth_kanji.letter %></a>
-        </li>
-      </ul>
-    </div> 
-    <div class="row tab-content justify-content-md-center">
-      <div id="first_kanji" class="tab-pane active col-10 p-0">
-        <p>既存の四時熟語</p>
-        <div class="row">
-          <%= render partial:'basic_yoji', collection: @basic_with_first_kanji %>
-        </div>
-<%# if  created は,IFを 忘れない %>
-        <p>四字熟ロット</p>
-        <div class="col-6">e-1</div>
-        <div class="col-6">e-2</div>
-        <div class="col-6">e-3</div>
-        <div class="col-6">e-4</div>
-        <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@basic_yoji.first_kanji) %></b>
-      </div>
-      <div id="second_kanji" class="tab-pane col-10 p-0">
-        <p>既存の四時熟語</p>
-        <div class="row">
-          <%= render partial:'basic_yoji', collection: @basic_with_second_kanji %>
-        </div>
-        <p>四字熟ロット</p>
-        <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@basic_yoji.second_kanji) %></b>
-      </div>
-      <div id="third_kanji" class="tab-pane col-10 p-0">
-        <p>既存の四時熟語</p>
-        <div class="row">
-          <%= render partial:'basic_yoji', collection: @basic_with_third_kanji %>
-        </div>
-        <p>四字熟ロット</p>
-        <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@basic_yoji.third_kanji) %></b>
-      </div>
-      <div id="fourth_kanji" class="tab-pane col-10 p-0">
-        <p>既存の四時熟語</p>
-        <div class="row">
-          <%= render partial:'basic_yoji', collection: @basic_with_fourth_kanji %>
-        </div>
-        <p>四字熟ロット</p>
-        <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@basic_yoji.fourth_kanji) %></b>
-      </div>
+  <div class="row justify-content-md-center">
+    <div class="col-10">
+      <%= render 'shared/related_kanji', {related_kanji: @related_kanji}%>    
     </div>
   </div>
 </div>

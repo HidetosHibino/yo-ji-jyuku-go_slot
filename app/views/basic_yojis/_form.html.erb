@@ -6,7 +6,7 @@
   </div>
   <div class="form-group py-3">
     <%= f.label :sound %>
-    <%= f.text_field :sound, class:'form-control' %>
+    <%= f.text_field :sound, class:'form-control', pattern:"[\u3041-\u3096]*" %>
   </div>
   <div class="form-group py-3">
     <%= f.label :meaning %>

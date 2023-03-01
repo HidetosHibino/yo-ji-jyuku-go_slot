@@ -2,6 +2,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import 'basic_yojis';
+@import 'slot_yojis';
 html {
   position: relative;
   min-height: 100%;
@@ -16,4 +17,7 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 48px;
+}
+.suggest_twitter:hover{
+  cursor: pointer;
 }

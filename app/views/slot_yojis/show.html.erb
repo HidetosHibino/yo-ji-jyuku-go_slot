@@ -1,0 +1,53 @@
+<% content_for(:title, t('.title')) %>
+<section class="text-center container">
+  <div class="row py-lg-5">
+      <div class="py-2">
+        <p class="lead text-muted"><%= @slot_yoji.sound %></p>
+      </div>
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-bolder"><b><%= @slot_yoji.decorate.jyukugo_mode %></b></h1>
+      <% if current_user&.own?(@slot_yoji) %>
+        <%= render 'crud_menus', { slot_yoji: @slot_yoji } %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row mb-sl-2 mb-md-5">
+    <div class="col-lg-4 col-md-6 mx-auto">
+      <% if @slot_yoji.meaning.present? %>
+        <p class="lead"><%= @slot_yoji.meaning %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mt-sl-2 mt-md-5">
+    <p class="col-10 p-0">
+      <div class="row nav-items-header justify-content-md-center mb-3">
+        <div class="row justify-content-md-center">
+          <ul class="nav nav-pills nav-fill col-10 rounded" id="pills-tab" role="tablist">
+            <li class="nav-item" role="relations">
+              <button class="nav-link active" id="pills-meanings-tab" data-bs-toggle="pill" data-bs-target="#pills-meanings" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><%= t('.meaning') %></button>
+            </li>
+            <li class="nav-item" role="relations">
+              <button class="nav-link" id="pills-examples-tab" data-bs-toggle="pill" data-bs-target="#pills-examples" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><%= t('.sample') %></button>
+            </li>
+            <li class="nav-item" role="relations">
+              <button class="nav-link" id="pills-kanjis-tab" data-bs-toggle="pill" data-bs-target="#pills-kanjis" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><%= t(Kanji.model_name.human) %></button>
+            </li>
+          </ul>
+        </div>
+        <div class="row justify-content-md-center">  
+          <div class="tab-content col-10" id="pills-tabContent">
+
+            <div class="tab-pane fade show active" id="pills-meanings" role="tabpanel" aria-labelledby="pills-meanings-tab">...</div>
+            <div class="tab-pane fade" id="pills-examples" role="tabpanel" aria-labelledby="pills-examples-tab">...</div>
+            <div class="tab-pane fade" id="pills-kanjis" role="tabpanel" aria-labelledby="pills-kanjis-tab">
+              <%= render 'shared/related_kanji', {related_kanji: @related_kanji} %>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </p>
+  </div>
+
+</div>
