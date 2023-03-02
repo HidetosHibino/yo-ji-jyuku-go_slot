@@ -1,4 +1,7 @@
 class SlotYoji < ApplicationRecord
+  include Sampleable
+  # has_many :samples, as: :sampleable
+
   belongs_to :user
 
   belongs_to :first_kanji, class_name: 'Kanji', foreign_key: 'first_kanji_id'

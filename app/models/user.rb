@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :basic_yojis, dependent: :nullify
   has_many :slot_yojis, dependent: :destroy
+  has_many :samples, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true

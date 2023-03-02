@@ -2,6 +2,9 @@ class BasicYoji < ApplicationRecord
   MOJI_NUM_LENGTH = 4
   VALID_SOUND_CHAR = /\A[ぁ-んー－]+\z/.freeze
 
+  include Sampleable
+  # has_many :samples, as: :sampleable
+
   belongs_to :user
 
   belongs_to :first_kanji, class_name: 'Kanji', foreign_key: 'first_kanji_id'
@@ -27,7 +30,6 @@ class BasicYoji < ApplicationRecord
   # form_object にしたほうがいいかもしれない
   def save_with_kanjis(basic_yoji_param)
     return false unless check_params(basic_yoji_param)
-    # TODO: 文字数チェックはmoduleに切り出してスロット結果と共通化したい
     kanjis = basic_yoji_param[:name].chars
     meaning = basic_yoji_param[:meaning]
     sound = basic_yoji_param[:sound]

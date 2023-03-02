@@ -1,0 +1,2 @@
+module BasicYojis::SampleTextsHelper
+end

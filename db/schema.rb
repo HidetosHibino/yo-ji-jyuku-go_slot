@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_28_141509) do
+ActiveRecord::Schema.define(version: 2023_03_02_051705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 2023_02_28_141509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["letter"], name: "index_kanjis_on_letter", unique: true
+  end
+
+  create_table "samples", force: :cascade do |t|
+    t.string "sampleable_type"
+    t.bigint "sampleable_id"
+    t.string "body"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sampleable_type", "sampleable_id"], name: "index_samples_on_sampleable_type_and_sampleable_id"
+    t.index ["user_id"], name: "index_samples_on_user_id"
   end
 
   create_table "slot_yojis", force: :cascade do |t|
@@ -72,6 +83,7 @@ ActiveRecord::Schema.define(version: 2023_02_28_141509) do
   add_foreign_key "basic_yojis", "kanjis", column: "second_kanji_id"
   add_foreign_key "basic_yojis", "kanjis", column: "third_kanji_id"
   add_foreign_key "basic_yojis", "users"
+  add_foreign_key "samples", "users"
   add_foreign_key "slot_yojis", "kanjis", column: "first_kanji_id"
   add_foreign_key "slot_yojis", "kanjis", column: "fourth_kanji_id"
   add_foreign_key "slot_yojis", "kanjis", column: "second_kanji_id"

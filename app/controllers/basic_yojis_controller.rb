@@ -22,6 +22,7 @@ class BasicYojisController < ApplicationController
   def show
     @basic_yoji = BasicYoji.find(params[:id])
     @related_kanji = RelatedKanji.new(@basic_yoji)
+    @samples = @basic_yoji.samples.order(created_at: :desc)
   end
 
   def edit; end
