@@ -14,6 +14,7 @@ ja:
       kanji: '漢字'
       basic_yoji: '四字熟語'
       slot_yoji: '四字熟ロット'
+      sample: '例文'
     attributes:
       user:
         name: 'ニックネーム'
@@ -39,4 +40,5 @@ ja:
         fourth_kanji: '4文字目'
         sound: '読み'
         meaning: '意味'
-    
+    sample:
+      body: '例文'

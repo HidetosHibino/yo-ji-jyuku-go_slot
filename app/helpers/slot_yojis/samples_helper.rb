@@ -1,0 +1,2 @@
+module SlotYojis::SamplesHelper
+end

@@ -3,6 +3,7 @@ class RelatedKanji
               :basic_with_first_kanjis, :basic_with_second_kanjis, :basic_with_third_kanjis, :basic_with_fourth_kanjis,
               :slot_with_first_kanjis, :slot_with_second_kanjis, :slot_with_third_kanjis, :slot_with_fourth_kanjis
 
+  # controller で実装して、継承でもよかったかも。。。
   def initialize(yoji_obj)
     @first_kanji = yoji_obj.first_kanji
     @second_kanji = yoji_obj.second_kanji

@@ -32,6 +32,7 @@ class SlotYojisController < ApplicationController
   def show
     @slot_yoji = SlotYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji).find(params[:id])
     @related_kanji = RelatedKanji.new(@slot_yoji)
+    @samples = @slot_yoji.samples.includes(:user).order(created_at: :desc)
   end
 
   def edit; end

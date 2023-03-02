@@ -1,0 +1,15 @@
+<div class="card my-3">
+  <div class="card-body">
+    <div class="h3">
+      <%= sample.body %>
+    </div>
+    <div class="text-end">
+      <%= sample.user.name %>
+    </div>
+  </div>
+  <div class="card-footer text-end">
+    <% if current_user.own?(sample) %>
+      <%= render 'samples/crud_menu', {sample: sample} %>
+    <% end %>
+  </div>
+</div>
