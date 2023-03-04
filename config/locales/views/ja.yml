@@ -69,5 +69,8 @@ ja:
         四字熟ロットの読みと意味を編集できます。
   samples:
     form:
-      open_form: '例文を投稿する'
+      open_form: '投稿する'
       body: '例文'
+  user_reactions:
+    form:
+      open_form: '投稿する'

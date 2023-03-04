@@ -2,7 +2,7 @@ class BasicYojisController < ApplicationController
   before_action :set_user_basic_yoji, only: %i[edit update destroy]
 
   def index
-    @basic_yojis = BasicYoji.all.order(created_at: :desc).page(params[:page])
+    @basic_yojis = BasicYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user).all.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -28,8 +28,8 @@ class BasicYojisController < ApplicationController
   def edit; end
 
   def update
-    if @basic_yoji.save_with_kanji(basic_yoji_params)
-      redirect_to basic_yoji_path(@basic_yoji), success: t('defaults.message.updated', item: Basic_yoji.model_name.human)
+    if @basic_yoji.save_with_kanjis(basic_yoji_params)
+      redirect_to basic_yoji_path(@basic_yoji), success: t('defaults.message.updated', item: BasicYoji.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: BasicYoji.model_name.human)
     end

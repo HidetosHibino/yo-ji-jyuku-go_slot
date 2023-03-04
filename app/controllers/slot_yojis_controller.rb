@@ -2,7 +2,7 @@ class SlotYojisController < ApplicationController
   before_action :set_users_slot_yoji, only: %i[edit update destroy]
 
   def index
-    @slot_yojis = SlotYoji.all.order(created_at: :desc).page(params[:page])
+    @slot_yojis = SlotYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user).all.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -30,9 +30,16 @@ class SlotYojisController < ApplicationController
   end
 
   def show
-    @slot_yoji = SlotYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji).find(params[:id])
+    @slot_yoji = SlotYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user).find(params[:id])
     @related_kanji = RelatedKanji.new(@slot_yoji)
     @samples = @slot_yoji.samples.includes(:user).order(created_at: :desc)
+    @meanings = @slot_yoji.meanings.includes(:user).order(created_at: :desc)
+    @comments = @slot_yoji.comments.includes(:user).order(created_at: :desc)
+    @new_meaning = Meaning.new(slot_yoji: @slot_yoji)
+    @new_comment = Comment.new(slot_yoji: @slot_yoji)
+    # 以下のように作ると、@slot_yojiから引っ張ってこれようになるのでだめ。
+    # パーシャルでuser名を出そうとするが、userがnullなので、 nomethodエラーになる
+    # @new_meaning = @slot_yoji.meanings.new()  画面確認用(user_id: 1, body: '画面から参照できます')
   end
 
   def edit; end
@@ -66,6 +73,6 @@ class SlotYojisController < ApplicationController
   end
 
   def update_params
-    params.require(:slot_yoji).permit(:sound,:meaning)
+    params.require(:slot_yoji).permit(:sound, :meaning)
   end
 end

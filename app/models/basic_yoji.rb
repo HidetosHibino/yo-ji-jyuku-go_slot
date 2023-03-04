@@ -21,7 +21,7 @@ class BasicYoji < ApplicationRecord
   #   message: "すでに存在します。"
   # }
 
-  scope :used_with, -> (args_kanji) {
+  scope :used_with, lambda { |args_kanji|
     result = where(first_kanji: args_kanji).or(where(second_kanji: args_kanji)).or(where(third_kanji: args_kanji)).or(where(fourth_kanji: args_kanji))
     merge(result)
     # 結果を他のスコープ結果にmergeする感じ
