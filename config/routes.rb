@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'slot_yojis/index'
-  get 'slot_yojis/new'
-  get 'slot_yojis/destroy'
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'
@@ -12,12 +9,13 @@ Rails.application.routes.draw do
   resources :basic_yojis, only: %i[index new create show edit update destroy] do
     resources :samples, only: %i[create update destroy], module: :basic_yojis
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :kanjis, only: %i[index show]
   resources :slot_yojis, only: %i[index new show create edit update destroy] do
-    resources :samples, only: %i[create update destroy], module: :slot_yojis
     collection do
       post :confirm
     end
+    resources :samples, only: %i[create update destroy], module: :slot_yojis
+    resources :meanings, only: %i[create update destroy], module: :slot_yojis, controller: :user_reactions, defaults: { type: 'Meaning' }
+    resources :comments, only: %i[create update destroy], module: :slot_yojis, controller: :user_reactions, type: 'Comment'
   end
 end

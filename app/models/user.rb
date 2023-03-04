@@ -5,6 +5,10 @@ class User < ApplicationRecord
   has_many :slot_yojis, dependent: :destroy
   has_many :samples, dependent: :destroy
 
+  has_many :user_reactions
+  has_many :meanings, through: :user_reactions
+  has_many :comments, through: :user_reactions
+
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true
   validates :email, uniqueness: true

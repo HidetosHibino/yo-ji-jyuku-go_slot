@@ -1,0 +1,30 @@
+<ul class='crud-menu-btn list-inline float-right'>
+  <li class="list-inline-item" title=<%= t('defaults.nav_edit') %>>
+    <a class="my-1 text-decoration-none" data-bs-toggle="collapse" href="#collapseSampleUpdateForm-<%= user_reaction.id %>" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <%= icon 'fa', 'pen' %>
+    </a>
+  </li>
+  <li class="list-inline-item" title=<%= t('defaults.nav_delete') %>>
+    <%# polymophic_path でリンクが作れる %>
+    <%= link_to [user_reaction.slot_yoji, user_reaction], id: "button-delete-#{user_reaction.id}", method: :delete, data: {confirm: t('defaults.message.delete_confirm') } do %> 
+      <%= icon 'fas', 'trash' %>
+    <% end %>
+  </li>
+</ul>
+
+<div class="collapse" id="collapseSampleUpdateForm-<%= user_reaction.id %>">
+  <div class="card card-body">
+    <div class="row">
+      <%= form_with model:[user_reaction.slot_yoji, user_reaction], local: true do |f| %>
+        <div class="row justify-content-md-center">  
+          <div class="col-sm-8 col-md-9 col-lg-10">
+            <%= f.text_field :body, class:'form-control', required: true %>
+          </div>
+          <div class="col-sm-4 col-md-3 col-lg-2">
+            <%= f.submit class:"btn btn-primary"  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

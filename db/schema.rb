@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_051705) do
+ActiveRecord::Schema.define(version: 2023_03_02_155354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(version: 2023_03_02_051705) do
     t.index ["user_id"], name: "index_slot_yojis_on_user_id"
   end
 
+  create_table "user_reactions", force: :cascade do |t|
+    t.string "type"
+    t.bigint "user_id"
+    t.bigint "slot_yoji_id"
+    t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slot_yoji_id"], name: "index_user_reactions_on_slot_yoji_id"
+    t.index ["user_id"], name: "index_user_reactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -89,4 +100,6 @@ ActiveRecord::Schema.define(version: 2023_03_02_051705) do
   add_foreign_key "slot_yojis", "kanjis", column: "second_kanji_id"
   add_foreign_key "slot_yojis", "kanjis", column: "third_kanji_id"
   add_foreign_key "slot_yojis", "users"
+  add_foreign_key "user_reactions", "slot_yojis"
+  add_foreign_key "user_reactions", "users"
 end

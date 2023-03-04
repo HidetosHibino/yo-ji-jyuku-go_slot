@@ -1,10 +1,10 @@
-<a class="btn btn-primary my-1" data-bs-toggle="collapse" href="#collapseSampleForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+<a class="btn btn-primary my-1" data-bs-toggle="collapse" href="#collapseUserReaction<%= user_reaction.type %>Form" role="button" aria-expanded="false" aria-controls="collapseExample">
   <%= t('.open_form') %>
 </a>
-<div class="collapse" id="collapseSampleForm">
+<div class="collapse" id="collapseUserReaction<%= user_reaction.type %>Form">
   <div class="card card-body">
     <div class="row">
-      <%= form_with model: [sampleable, Sample.new], local: true do |f| %>
+      <%= form_with model: [user_reaction.slot_yoji, user_reaction], local: true do |f| %>
         <div class="row justify-content-md-center position-relative">  
           <div class="col-sm-8 col-md-9 col-lg-10">
             <%= f.label :body %>
