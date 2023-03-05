@@ -1,0 +1,1 @@
+$("#js-bookmark-button-for-<%= @bookmarkable.class %>-<%= @bookmarkable.id %>").replaceWith("<%= escape_javascript(render 'bookmarks/unbookmark', { bookmarkable: @bookmarkable }) %>");

@@ -1,4 +1,6 @@
 class SamplesController < ApplicationController
+  before_action :set_sampleable
+  
   def create
     @sample = @sampleable.samples.new(sample_params)
     @sample.user = current_user
@@ -31,5 +33,9 @@ class SamplesController < ApplicationController
 
   def sample_params
     params.require(:sample).permit(:body)
+  end
+
+  def set_sampleable
+    raise NotImplementedError
   end
 end

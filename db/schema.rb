@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_155354) do
+ActiveRecord::Schema.define(version: 2023_03_04_132018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2023_03_02_155354) do
     t.index ["second_kanji_id"], name: "index_basic_yojis_on_second_kanji_id"
     t.index ["third_kanji_id"], name: "index_basic_yojis_on_third_kanji_id"
     t.index ["user_id"], name: "index_basic_yojis_on_user_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "bookmarkable_type"
+    t.bigint "bookmarkable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookmarkable_type", "bookmarkable_id"], name: "index_bookmarks_on_bookmarkable_type_and_bookmarkable_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "kanjis", force: :cascade do |t|
@@ -94,6 +104,7 @@ ActiveRecord::Schema.define(version: 2023_03_02_155354) do
   add_foreign_key "basic_yojis", "kanjis", column: "second_kanji_id"
   add_foreign_key "basic_yojis", "kanjis", column: "third_kanji_id"
   add_foreign_key "basic_yojis", "users"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "samples", "users"
   add_foreign_key "slot_yojis", "kanjis", column: "first_kanji_id"
   add_foreign_key "slot_yojis", "kanjis", column: "fourth_kanji_id"

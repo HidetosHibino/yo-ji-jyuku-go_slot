@@ -6,8 +6,8 @@ class KanjisController < ApplicationController
 
   def show
     @kanji = Kanji.find(params[:id])
-    @slot_yojis = SlotYoji.used_with(@kanji).page(params[:slot_yojis_page])
-    @basic_yojis = BasicYoji.used_with(@kanji).page(params[:basic_yojis_page])
+    @slot_yojis = SlotYoji.used_with(@kanji).includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji).page(params[:slot_yojis_page])
+    @basic_yojis = BasicYoji.used_with(@kanji).includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji).page(params[:basic_yojis_page])
     # pagenationはAjax化するため分岐
     respond_to do |format|
       format.html

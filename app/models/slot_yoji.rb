@@ -1,6 +1,8 @@
 class SlotYoji < ApplicationRecord
   include Sampleable
   # has_many :samples, as: :sampleable
+  # include Bookmarkable
+  has_many :bookmarks, as: :bookmarkable
 
   belongs_to :user
 

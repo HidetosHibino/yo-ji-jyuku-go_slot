@@ -13,18 +13,23 @@
           <%= link_to '四字熟ロット一覧', slot_yojis_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownBasicYojiMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             四字熟語
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownMenuLink">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownBasicYojiMenuLink">
             <li><%= link_to '登録されている四字熟語一覧', basic_yojis_path, class:"dropdown-item"%></li>
             <li><%= link_to '四字熟語登録', new_basic_yoji_path, class:"dropdown-item"%></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <%= link_to '漢字一覧', kanjis_path, class: "nav-link" %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownOthorMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            その他
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownOtherMenuLink">
+            <li><%= link_to '漢字一覧', kanjis_path, class:"dropdown-item"%></li>
+            <li><%= link_to 'お気に入り一覧', bookmarks_path, class:"dropdown-item"%></li>
+          </ul>
         </li>
-
         <li class="nav-item" id="js-login_out-nav">
           <%= render 'shared/login_status' %>
         </li>

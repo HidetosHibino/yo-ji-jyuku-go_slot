@@ -2,26 +2,25 @@
   <div class="basic-yoji<%= basic_yoji.id %>">
     <div class="card card-yoji-wrapper">
       <div class="card-body position-relative">
-        <h4 class="card-title mt-sm-1 mt-lg-2 mb-sm-1 mb-lg-2">
+        <h4 class="card-title mt-sm-1 mt-lg-2 mb-sm-1 mb-lg-2 position-relative">
           <b><%= basic_yoji.decorate.jyukugo_mode %></b>
+          <div class="position-absolute top-0 end-0 h6">
+            <% if current_user.own?(basic_yoji) %>
+              <%= render 'basic_yojis/crud_menus', { basic_yoji: basic_yoji } %>
+            <% end %>
+          </div>
         </h4>
         <p class="card-subtitle mb-sm-2 mb-lg-4 text-muted"><%= basic_yoji.sound %></p>
         <div class="menu position-absolute bottom-0">
-          <% if current_user.own?(basic_yoji) %>
-            <%# TODO: 編集ページ %>
-          <% else %>
-            <%# TODO: bookmarkページ %>
-          <% end %>
           <p class="card-text card-yoji-meaning"><%= basic_yoji.meaning %></p>
 
           <ul class="list-inline">
             <li class="list-inline-item">
               <%= link_to t('defaults.nav_show'), basic_yoji_path(basic_yoji) %>
-              <%# <%= board.user.decorate.full_name %> %>
             </li>
             <li class="list-inline-item">
               <%= icon 'far', 'user' %>
-              <%# <%= l board.created_at, format: :long %> %>
+              <%= basic_yoji.user.name %>
             </li>
           </ul>
         </div>

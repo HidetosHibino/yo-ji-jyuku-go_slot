@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     resources :meanings, only: %i[create update destroy], module: :slot_yojis, controller: :user_reactions, defaults: { type: 'Meaning' }
     resources :comments, only: %i[create update destroy], module: :slot_yojis, controller: :user_reactions, type: 'Comment'
   end
+  resources :bookmarks, only: %i[index create destroy]
 end

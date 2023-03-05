@@ -74,3 +74,6 @@ ja:
   user_reactions:
     form:
       open_form: '投稿する'
+  bookmarks:
+    index:
+      title: 'お気に入り一覧'
