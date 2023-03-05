@@ -1,6 +1,4 @@
 class BasicYojis::SamplesController < SamplesController
-  before_action :set_sampleable
-
   private
 
   def set_sampleable

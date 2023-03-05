@@ -1,0 +1,3 @@
+<%= link_to bookmark_path(type:bookmarkable.class, id:bookmarkable.id), id: "js-bookmark-button-for-#{bookmarkable.class}-#{bookmarkable.id}", class:"float-right", method: :delete, remote: true do %>
+  <%= icon 'fas', 'star' %>
+<% end %>
