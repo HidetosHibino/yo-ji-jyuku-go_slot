@@ -1,0 +1,1 @@
+$("#slot_yoji-comments").html("<%= j(render partial: 'user_reactions/user_reaction', collection: @comments) %><%= j(paginate @comments, param_name: :comments_page, params: {type: :Comment}, remote: true) %>");

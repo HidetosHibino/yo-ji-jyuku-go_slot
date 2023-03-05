@@ -1,9 +1,10 @@
 class SlotYoji < ApplicationRecord
+  SHOW_VIEW_ALLOW_RELATION = %w[Meaning Sample Comment].map(&:freeze).freeze
+
   include Sampleable
   # has_many :samples, as: :sampleable
-  # include Bookmarkable
-  has_many :bookmarks, as: :bookmarkable
-
+  include Bookmarkable
+  # has_many :bookmarks, as: :bookmarkable
   belongs_to :user
 
   has_many :meanings

@@ -1,0 +1,1 @@
+$("#bookmark-slot_yoji").html("<%= j(render partial: 'slot_yojis/slot_yoji', collection: @bookmarked_slot_yojis, as: :slot_yoji) %><%= j(paginate @bookmarked_slot_yojis, param_name: 'slot_yojis_page', params: {type: :SlotYoji}, remote: true) %>");
