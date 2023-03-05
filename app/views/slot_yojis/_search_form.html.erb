@@ -1,0 +1,7 @@
+<%= search_form_for @q do |f| %>
+  <p class="input-group mb-3">
+    <%= f.search_field :first_kanji_letter_or_second_kanji_letter_or_third_kanji_letter_or_fourth_kanji_letter_cont, 
+                        class: 'form-control' %>
+    <%= f.submit class:'btn btn-primary' %>
+  </p>
+<% end %>

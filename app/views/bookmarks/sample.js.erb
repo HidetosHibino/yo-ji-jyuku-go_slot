@@ -1,0 +1,1 @@
+$("#bookmark-sample").html("<%= j(render partial: 'sample', collection: @bookmarked_samples, as: :sample) %><%= j(paginate @bookmarked_samples, param_name: 'samples_page', params: {type: :Sample}, remote: true) %>");

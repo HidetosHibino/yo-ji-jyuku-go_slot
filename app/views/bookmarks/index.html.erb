@@ -29,9 +29,10 @@
         <div class="row justify-content-md-center">  
           <div class="tab-content col-10" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-meanings" role="tabpanel" aria-labelledby="pills-meanings-tab">
-              <% if @bookmarked_sloy_yojis.present? %>
-                <div class="row">
-                  <%= render partial: 'slot_yojis/slot_yoji', collection: @bookmarked_sloy_yojis %>
+              <% if @bookmarked_slot_yojis.present? %>
+                <div class="row" id="bookmark-slot_yoji">
+                  <%= render partial: 'slot_yojis/slot_yoji', collection: @bookmarked_slot_yojis %>
+                  <%= paginate @bookmarked_slot_yojis, param_name: 'slot_yojis_page', params: {type: :SlotYoji}, remote: true %>
                 </div>
               <% else %>
                 まだお気に入りされていません
@@ -40,8 +41,9 @@
             <div class="tab-pane fade" id="pills-examples" role="tabpanel" aria-labelledby="pills-examples-tab">
               <% if @bookmarked_samples.present? %>
                 <div class="row">
-                  <div class="col">
-                  <%= render partial: 'samples', collection: @bookmarked_samples, as: :sample %>
+                  <div class="col" id="bookmark-sample">
+                  <%= render partial: 'sample', collection: @bookmarked_samples, as: :sample %>
+                  <%= paginate @bookmarked_samples, param_name: 'samples_page', params: {type: :Sample}, remote: true %>
                   </div>
                 </div>
               <% else %>
@@ -49,10 +51,28 @@
               <% end %>
             </div>
             <div class="tab-pane fade" id="pills-kanjis" role="tabpanel" aria-labelledby="pills-kanjis-tab">
-              <%= render partial: 'user_reactions', collection: @bookmarked_comments, as: :user_reaction %>
+              <% if @bookmarked_meanings.present? %>
+                <div class="row">
+                  <div class="col" id="bookmark-meaning">
+                    <%= render partial: 'user_reactions', collection: @bookmarked_meanings, as: :user_reaction %>
+                    <%= paginate @bookmarked_meanings, param_name: 'meanings_page', params: {type: :Meaning}, remote: true %>
+                  </div>
+                </div>
+              <% else %>
+                まだお気に入りされていません
+              <% end %>
             </div>
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-meanings-tab">
-              <%= render partial: 'user_reactions', collection: @bookmarked_meanings, as: :user_reaction %>
+              <% if @bookmarked_comments.present? %>
+                <div class="row">
+                  <div class="col" id="bookmark-comments">
+                    <%= render partial: 'user_reactions', collection: @bookmarked_comments, as: :user_reaction %>
+                    <%= paginate @bookmarked_comments, param_name: 'comments_page', params: {type: :Comment}, remote: true %>
+                  </div>
+                </div>
+              <% else %>
+                まだお気に入りされていません
+              <% end %>
             </div>
           </div>
         </div>  

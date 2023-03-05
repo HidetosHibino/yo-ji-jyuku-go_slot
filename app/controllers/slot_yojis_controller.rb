@@ -1,8 +1,10 @@
 class SlotYojisController < ApplicationController
   before_action :set_users_slot_yoji, only: %i[edit update destroy]
+  before_action :set_instances_at_show, only: %i[show]
 
   def index
-    @slot_yojis = SlotYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user, bookmarks: [:user]).all.order(created_at: :desc).page(params[:page])
+    @q = SlotYoji.ransack(params[:q])
+    @slot_yojis = @q.result(distinct: true).includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user, bookmarks: [:user]).all.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -30,17 +32,11 @@ class SlotYojisController < ApplicationController
   end
 
   def show
-    # TODO: @related_kanji のクエリが怪しいので、リレーション中心でひっぱってくるように変えたい
-    @slot_yoji = SlotYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user, bookmarks: [:user]).find(params[:id])
-    @related_kanji = RelatedKanji.new(@slot_yoji)
-    @samples = @slot_yoji.samples.includes(:user, bookmarks: [:user]).order(created_at: :desc)
-    @meanings = @slot_yoji.meanings.includes(:user, bookmarks: [:user]).order(created_at: :desc)
-    @comments = @slot_yoji.comments.includes(:user, bookmarks: [:user]).order(created_at: :desc)
-    @new_meaning = Meaning.new(slot_yoji: @slot_yoji)
-    @new_comment = Comment.new(slot_yoji: @slot_yoji)
-    # 以下のように作ると、@slot_yojiから引っ張ってこれようになるのでだめ。
-    # パーシャルでuser名を出そうとするが、userがnullなので、 nomethodエラーになる
-    # @new_meaning = @slot_yoji.meanings.new()  画面確認用(user_id: 1, body: '画面から参照できます')
+    @related_kanji = RelatedKanji.new(@slot_yoji) unless request.xhr?
+
+    if SlotYoji::SHOW_VIEW_ALLOW_RELATION.include?(params[:type])
+      render params[:type].underscore.to_sym
+    end
   end
 
   def edit; end
@@ -75,5 +71,20 @@ class SlotYojisController < ApplicationController
 
   def update_params
     params.require(:slot_yoji).permit(:sound, :meaning)
+  end
+
+  # show で使うインスタンスの生成メソッド
+  def set_instances_at_show
+    # TODO: @related_kanji のクエリが怪しいので、リレーション中心でひっぱってくるように変えたい
+    @slot_yoji = SlotYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user, bookmarks: [:user]).find(params[:id])
+    @meanings = @slot_yoji.meanings.includes(:user, bookmarks: [:user]).order(created_at: :desc).page(params[:meanings_page]).per(8)
+    @samples = @slot_yoji.samples.includes(:user, bookmarks: [:user]).order(created_at: :desc).page(params[:samples_page]).per(8)
+    # @related_kanji = RelatedKanji.new(@slot_yoji)
+    @comments = @slot_yoji.comments.includes(:user, bookmarks: [:user]).order(created_at: :desc).page(params[:comments_page]).per(8)
+    @new_meaning = Meaning.new(slot_yoji: @slot_yoji)
+    @new_comment = Comment.new(slot_yoji: @slot_yoji)
+    # 以下のように作ると、@slot_yojiから引っ張ってこれようになるのでだめ。
+    # パーシャルでuser名を出そうとするが、userがnullなので、 nomethodエラーになる
+    # @new_meaning = @slot_yoji.meanings.new()  画面確認用(user_id: 1, body: '画面から参照できちゃいます')
   end
 end

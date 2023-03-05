@@ -1,0 +1,6 @@
+<%= search_form_for @q do |f| %>
+  <p class="input-group mb-3">
+    <%= f.search_field :letter_cont, class:'form-control' %>
+    <%= f.submit class:'btn btn-primary' %>
+  </p>
+<% end %>

@@ -1,0 +1,1 @@
+$("#bookmark-meaning").html("<%= j(render partial: 'user_reactions', collection: @bookmarked_meanings, as: :user_reaction) %><%= j(paginate @bookmarked_meanings, param_name: 'meanings_page', params: {type: :Meaning}, remote: true) %>");

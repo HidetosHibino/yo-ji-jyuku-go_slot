@@ -5,6 +5,7 @@
       <h1 class="fw-light"><%= t('.title') %></h1>
       <div class="py-2">
         <p class="lead text-muted"><%= simple_format(t('.explain')) %></p>
+        <%= render 'search_form', url: kanjis_path %>
       </div>
     </div>
   </div>

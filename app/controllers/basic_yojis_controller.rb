@@ -2,7 +2,8 @@ class BasicYojisController < ApplicationController
   before_action :set_user_basic_yoji, only: %i[edit update destroy]
 
   def index
-    @basic_yojis = BasicYoji.includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user).all.order(created_at: :desc).page(params[:page])
+    @q = BasicYoji.ransack(params[:q])
+    @basic_yojis = @q.result(distinct: true).includes(:first_kanji, :second_kanji, :third_kanji, :fourth_kanji, :user).all.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -22,7 +23,7 @@ class BasicYojisController < ApplicationController
   def show
     @basic_yoji = BasicYoji.find(params[:id])
     @related_kanji = RelatedKanji.new(@basic_yoji)
-    @samples = @basic_yoji.samples.order(created_at: :desc)
+    @samples = @basic_yoji.samples.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def edit; end

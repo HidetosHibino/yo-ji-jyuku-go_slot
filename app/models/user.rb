@@ -14,9 +14,11 @@ class User < ApplicationRecord
   has_many :user_reactions
   has_many :bookmarked_user_reactions, through: :bookmarks, source: :bookmarkable, source_type: 'UserReaction'
   has_many :meanings, through: :user_reactions
-  has_many :bookmarked_meanings, through: :bookmarks, source: :bookmarkable, source_type: 'Meaning'
+  # 機能しないのでコメントアウト(bookmarkの bookmarkable_type = UserRectionになるので)
+  # やるならメソッド化して、 bookmarked_user_reaction から引っ張ってくる
+  # has_many :bookmarked_meanings, through: :bookmarks, source: :bookmarkable, source_type: 'Meaning'
   has_many :comments, through: :user_reactions
-  has_many :bookmarked_comments, through: :bookmarks, source: :bookmarkable, source_type: 'Comment'
+  # has_many :bookmarked_comments, through: :bookmarks, source: :bookmarkable, source_type: 'Comment'
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true
