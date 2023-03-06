@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create update destroy], module: :slot_yojis, controller: :user_reactions, type: 'Comment'
   end
   resources :bookmarks, only: %i[index create destroy]
+  resources :profiles, only: %i[show edit update]
 end

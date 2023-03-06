@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-lg-3 mb-3">
   <div class="slot-yoji<%= slot_yoji.id %>">
     <div class="card card-yoji-wrapper">
-      <div class="card-body position-relative">
+      <div class="card-body">
         <h4 class="card-title mt-sm-1 mt-lg-2 mb-sm-1 mb-lg-2 position-relative">
           <b><%= slot_yoji.decorate.jyukugo_mode %></b>
           <div class="position-absolute top-0 end-0 h6">
@@ -14,18 +14,17 @@
         </h4>
         <p class="card-subtitle mb-sm-2 mb-lg-4 text-muted"><%= slot_yoji.sound %></p>
         <p class="card-text card-yoji-meaning"><%= slot_yoji.meaning %></p>
-        <div class="menu position-absolute bottom-0">
-          <ul class="list-inline">
-            <li class="list-inline-item">
+          <div class="position-absolute bottom-0 start-0 ms-3 mb-2">
+            <div>
               <%= link_to t('defaults.nav_show'), slot_yoji_path(slot_yoji) %>
-            </li>
-            <li class="list-inline-item">
-              <%= icon 'far', 'user' %>
-              <%= slot_yoji.user.name %>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
+          <div class="position-absolute bottom-0 end-0 me-3 mb-2">
+            <%= profile_link(slot_yoji.user) %>
+          </div> 
       </div>
     </div>
   </div>
 </div>
+
+
