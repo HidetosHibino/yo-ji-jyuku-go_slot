@@ -40,8 +40,14 @@
           <div class="tab-content col-10" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-examples" role="tabpanel" aria-labelledby="pills-examples-tab">
               <%= render partial:'samples/form', locals: { sampleable: @basic_yoji } %>
-              <%= render partial:'samples/sample', collection: @samples %>
-              <%= paginate @samples %>
+              <% if @samples.present? %>
+                <%= render partial:'samples/sample', collection: @samples %>
+                <%= paginate @samples %>
+              <% else %>
+                <div class="text-center">
+                  <%= t('defaults.no_content') %>
+                </div>  
+              <% end %>
             </div>
             <div class="tab-pane fade" id="pills-kanjis" role="tabpanel" aria-labelledby="pills-kanjis-tab">
               <%= render 'shared/related_kanji', {related_kanji: @related_kanji} %>

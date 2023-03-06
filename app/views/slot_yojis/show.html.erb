@@ -44,15 +44,27 @@
             <div class="tab-pane fade show active" id="pills-meanings" role="tabpanel" aria-labelledby="pills-meanings-tab">
               <%= render 'user_reactions/form', { user_reaction: @new_meaning } %>
               <div id="slot_yoji-meanings">
-                <%= render partial: 'user_reactions/user_reaction', collection: @meanings %>
-                <%= paginate @meanings, param_name: :meanings_page, params: {type: :Meaning}, remote: true %>
+                <% if @meanings.present? %>
+                  <%= render partial: 'user_reactions/user_reaction', collection: @meanings %>
+                  <%= paginate @meanings, param_name: :meanings_page, params: {type: :Meaning}, remote: true %>
+                <% else %>
+                  <div class="text-center">
+                    <%= t('defaults.no_content') %>
+                  </div>  
+                <% end %>
               </div>
             </div>
             <div class="tab-pane fade" id="pills-examples" role="tabpanel" aria-labelledby="pills-examples-tab">
               <%= render partial:'samples/form', locals: { sampleable: @slot_yoji} %>
               <div id="slot_yoji-samples">
-                <%= render partial:'samples/sample', collection: @samples %>
-                <%= paginate @samples, param_name: :samples_page, params: {type: :Sample}, remote: true %>
+                <% if @samples.present? %>
+                  <%= render partial:'samples/sample', collection: @samples %>
+                  <%= paginate @samples, param_name: :samples_page, params: {type: :Sample}, remote: true %>
+                <% else %>
+                  <div class="text-center">
+                    <%= t('defaults.no_content') %>
+                  </div>  
+                <% end %>
               </div>
             </div>
             <div class="tab-pane fade" id="pills-kanjis" role="tabpanel" aria-labelledby="pills-kanjis-tab">
@@ -61,8 +73,14 @@
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-meanings-tab">
               <%= render 'user_reactions/form', { user_reaction: @new_comment } %>
               <div id="slot_yoji-comments">
-                <%= render partial: 'user_reactions/user_reaction', collection: @comments %>
-                <%= paginate @comments, param_name: :comments_page, params: {type: :Comment}, remote: true %>  
+                <% if @comments.present? %>
+                  <%= render partial: 'user_reactions/user_reaction', collection: @comments %>
+                   <%= paginate @comments, param_name: :comments_page, params: {type: :Comment}, remote: true %>  
+                <% else %>
+                  <div class="text-center">
+                    <%= t('defaults.no_content') %>
+                  </div>  
+                <% end %>
               </div>
             </div>
           </div>
