@@ -1,0 +1,25 @@
+<% if type == 'basic_yoji' %>
+  <div class="my-1 fw-bold"><%= t(BasicYoji.model_name.human) %></div>
+  <% if yojis.length == 0 %>
+    <div class="m-5">
+      <%= t('defaults.no_content') %>
+    </div>
+  <% else %>
+    <div class="row">
+      <%= render partial:'basic_yojis/basic_yoji', collection: yojis %>
+    </div>
+  <%end %>
+<% elsif type == 'slot_yoji' %>
+  <div class="my-1 fw-bold"><%= t(SlotYoji.model_name.human) %></div>
+  <% if yojis.length == 0 %>
+    <div class="text-center m-5">
+      <%= t('defaults.no_content') %>
+    </div>
+  <% else %>
+    <div class="row">
+      <%= render partial: 'slot_yojis/slot_yoji', collection: yojis %>
+    </div>
+  <%end %>  
+<% else %>
+  <h1>classmatch is missing</h1>
+<% end %>
