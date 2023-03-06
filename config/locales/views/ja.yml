@@ -18,6 +18,8 @@ ja:
   shared:
     header:
       nav_top: '四字熟ロット'
+    login_status:
+      nav_profile: 'プロフィール確認'
   user_sessions:
     create:
       success: 'ログインしました'
@@ -46,7 +48,7 @@ ja:
         登録した四字熟語の漢字はスロットに登場するようになります。
   kanjis:
     index:
-      title: '漢字一覧'
+      title: '📕漢字一覧📕'
       explain: |
         四字熟ロットで使われる漢字一覧です。
         四字熟語を登録することで自動的に漢字が追加されます。
@@ -77,3 +79,8 @@ ja:
   bookmarks:
     index:
       title: 'お気に入り一覧'
+  profiles:
+    show:
+      title: '📕プロフィール&アクテビティ📕'
+    edit:
+      title: '✏️プロフィール編集✏️'

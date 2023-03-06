@@ -23,6 +23,8 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード(確認用)'
+        introduction: '自己紹介'
+        avatar: 'アバター'
       kanji: 
         letter: '文字'
       basic_yoji:
