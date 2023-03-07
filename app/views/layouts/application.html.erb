@@ -10,9 +10,14 @@
   </head>
 
   <body>
-    <div id='js-modal_space'>
+    <div id='js-modal_space'></div>
+    <div id='js-header'>
+      <% if logged_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
     </div>
-    <%= render 'shared/header' %>
     <div id="flash_message">
       <%= render 'shared/flash_message' %>
     </div>
