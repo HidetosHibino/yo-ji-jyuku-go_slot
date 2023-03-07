@@ -42,7 +42,7 @@
               <% if @bookmarked_samples.present? %>
                 <div class="row">
                   <div class="col" id="bookmark-sample">
-                  <%= render partial: 'sample', collection: @bookmarked_samples, as: :sample %>
+                  <%= render partial: 'samples/sample', collection: @bookmarked_samples, as: :sample %>
                   <%= paginate @bookmarked_samples, param_name: 'samples_page', params: {type: :Sample}, remote: true %>
                   </div>
                 </div>
