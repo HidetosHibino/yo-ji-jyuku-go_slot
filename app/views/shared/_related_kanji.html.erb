@@ -19,22 +19,22 @@
     <div id="first_kanji" class="tab-pane active p-0">
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.basic_with_first_kanjis, type: 'basic_yoji'} %>
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.slot_with_first_kanjis, type: 'slot_yoji'} %>
-      <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@related_kanji.first_kanji) %></b>
+      <b class="mb-sm-2 mb-lg-4"><%= link_to t('defaults.nav_kanji'), kanji_path(@related_kanji.first_kanji) %></b>
     </div>
     <div id="second_kanji" class="tab-pane p-0">
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.basic_with_second_kanjis, type: 'basic_yoji'} %>
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.slot_with_second_kanjis, type: 'slot_yoji'} %>
-      <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@related_kanji.second_kanji) %></b>
+      <b class="mb-sm-2 mb-lg-4"><%= link_to t('defaults.nav_kanji'), kanji_path(@related_kanji.second_kanji) %></b>
     </div>
     <div id="third_kanji" class="tab-pane p-0">
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.basic_with_third_kanjis, type: 'basic_yoji'} %>
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.slot_with_third_kanjis, type: 'slot_yoji'} %>
-      <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@related_kanji.third_kanji) %></b>
+      <b class="mb-sm-2 mb-lg-4"><%= link_to t('defaults.nav_kanji'), kanji_path(@related_kanji.third_kanji) %></b>
     </div>
     <div id="fourth_kanji" class="tab-pane p-0">
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.basic_with_fourth_kanjis, type: 'basic_yoji'} %>
       <%= render 'shared/related_kanji/yoji.html', {yojis: @related_kanji.slot_with_fourth_kanjis, type: 'slot_yoji'} %>
-      <b class="mb-sm-2 mb-lg-4"><%= link_to 'この漢字の四字熟語をもっと見る', kanji_path(@related_kanji.fourth_kanji) %></b>
+      <b class="mb-sm-2 mb-lg-4"><%= link_to t('defaults.nav_kanji'), kanji_path(@related_kanji.fourth_kanji) %></b>
     </div>
   </div>
 </div>

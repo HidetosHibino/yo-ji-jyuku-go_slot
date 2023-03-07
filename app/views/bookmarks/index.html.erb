@@ -35,7 +35,7 @@
                   <%= paginate @bookmarked_slot_yojis, param_name: 'slot_yojis_page', params: {type: :SlotYoji}, remote: true %>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
             <div class="tab-pane fade" id="pills-examples" role="tabpanel" aria-labelledby="pills-examples-tab">
@@ -47,7 +47,7 @@
                   </div>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
             <div class="tab-pane fade" id="pills-kanjis" role="tabpanel" aria-labelledby="pills-kanjis-tab">
@@ -59,7 +59,7 @@
                   </div>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-meanings-tab">
@@ -71,7 +71,7 @@
                   </div>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
           </div>

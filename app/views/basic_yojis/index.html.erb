@@ -5,10 +5,10 @@
       <h1 class="fw-light"><%= t('.title') %></h1>
       <div class="pt-5 row">
         <div class="col-9">
-          <%= render 'search_form', url: basic_yojis_path %>
+          <%= render 'search_form' %>
         </div>
         <div class="col-3">
-          <%= link_to '新規作成', new_basic_yoji_url, class:"btn btn-primary" %>
+          <%= link_to t('defaults.nav_new'), new_basic_yoji_url, class:"btn btn-primary" %>
         </div>
       </div>
     </div>

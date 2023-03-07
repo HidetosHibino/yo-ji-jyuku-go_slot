@@ -18,7 +18,7 @@
       <% if @basic_yoji.meaning.present? %>
         <p class="lead"><%= @basic_yoji.meaning %></p>
       <% else %>
-        <p class="text-center">意味が投稿されていません</p>
+        <p class="text-center"><%= t('.no_meaning') %></p>
       <% end %>
     </div>
   </div>
