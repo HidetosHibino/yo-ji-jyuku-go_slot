@@ -4,5 +4,5 @@
   <%= paginate basic_yojis, param_name: 'basic_yojis_page', remote: true %>
 </div>
 <% else %>
-  使われていません
+  <%= t('defaults.no_content') %>
 <% end %>

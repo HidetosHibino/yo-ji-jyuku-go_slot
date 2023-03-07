@@ -35,43 +35,43 @@
                   <%= paginate @bookmarked_slot_yojis, param_name: 'slot_yojis_page', params: {type: :SlotYoji}, remote: true %>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
             <div class="tab-pane fade" id="pills-examples" role="tabpanel" aria-labelledby="pills-examples-tab">
               <% if @bookmarked_samples.present? %>
                 <div class="row">
                   <div class="col" id="bookmark-sample">
-                  <%= render partial: 'sample', collection: @bookmarked_samples, as: :sample %>
+                  <%= render partial: 'samples/sample', collection: @bookmarked_samples, as: :sample %>
                   <%= paginate @bookmarked_samples, param_name: 'samples_page', params: {type: :Sample}, remote: true %>
                   </div>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
             <div class="tab-pane fade" id="pills-kanjis" role="tabpanel" aria-labelledby="pills-kanjis-tab">
               <% if @bookmarked_meanings.present? %>
                 <div class="row">
                   <div class="col" id="bookmark-meaning">
-                    <%= render partial: 'user_reactions', collection: @bookmarked_meanings, as: :user_reaction %>
+                    <%= render partial: 'user_reactions/user_reaction', collection: @bookmarked_meanings, as: :user_reaction %>
                     <%= paginate @bookmarked_meanings, param_name: 'meanings_page', params: {type: :Meaning}, remote: true %>
                   </div>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
             <div class="tab-pane fade" id="pills-comments" role="tabpanel" aria-labelledby="pills-meanings-tab">
               <% if @bookmarked_comments.present? %>
                 <div class="row">
                   <div class="col" id="bookmark-comments">
-                    <%= render partial: 'user_reactions', collection: @bookmarked_comments, as: :user_reaction %>
+                    <%= render partial: 'user_reactions/user_reaction', collection: @bookmarked_comments, as: :user_reaction %>
                     <%= paginate @bookmarked_comments, param_name: 'comments_page', params: {type: :Comment}, remote: true %>
                   </div>
                 </div>
               <% else %>
-                まだお気に入りされていません
+                <%= t('.no_bookmark') %>
               <% end %>
             </div>
           </div>

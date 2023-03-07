@@ -7,27 +7,27 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto main-nav align-items-center">
         <li class="nav-item">
-          <%= link_to 'スロット', new_slot_yoji_path, class: "nav-link" %>
+          <%= link_to t('.nav_slot_new'), new_slot_yoji_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to '四字熟ロット一覧', slot_yojis_path, class: "nav-link" %>
+          <%= link_to t('.nav_slot_index'), slot_yojis_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownBasicYojiMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            四字熟語
+            <%= t('.nav_list_basic_yoji') %>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownBasicYojiMenuLink">
-            <li><%= link_to '登録されている四字熟語一覧', basic_yojis_path, class:"dropdown-item"%></li>
-            <li><%= link_to '四字熟語登録', new_basic_yoji_path, class:"dropdown-item"%></li>
+            <li><%= link_to t('.nav_basic_index'), basic_yojis_path, class:"dropdown-item"%></li>
+            <li><%= link_to t('.nav_basic_new'), new_basic_yoji_path, class:"dropdown-item"%></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownOthorMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            その他
+            <%= t('.nav_list_other') %>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownOtherMenuLink">
-            <li><%= link_to '漢字一覧', kanjis_path, class:"dropdown-item"%></li>
-            <li><%= link_to 'お気に入り一覧', bookmarks_path, class:"dropdown-item"%></li>
+            <li><%= link_to t('.nav_kanji_index'), kanjis_path, class:"dropdown-item"%></li>
+            <li><%= link_to t('.nav_bookmark_index'), bookmarks_path, class:"dropdown-item"%></li>
           </ul>
         </li>
         <li class="nav-item" id="js-login_out-nav">

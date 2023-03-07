@@ -54,8 +54,6 @@
       slot_result_kanjis[i] = reels[i].children[1].getAttribute('data-kanjis')
       if(stopReelFlag[0] && stopReelFlag[1] && stopReelFlag[2] && stopReelFlag[3]){
         start_btn.removeAttribute("disabled");
-        console.log("slot_result_id" + slot_result_id);
-        console.log("slot_result_kanjis" + slot_result_kanjis);
         submit_form.style.display = "";
         $('#slot_yoji_first_kanji_id').val(slot_result_id[0]);
         $('#slot_yoji_second_kanji_id').val(slot_result_id[1]);

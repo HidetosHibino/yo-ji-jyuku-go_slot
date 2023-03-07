@@ -1,1 +1,1 @@
-$("#bookmark-comments").html("<%= j(render partial: 'user_reactions', collection: @bookmarked_comments, as: :user_reaction) %><%= j(paginate @bookmarked_comments, param_name: 'comments_page', params: {type: :Comment}, remote: true) %>");
+$("#bookmark-comments").html("<%= j(render partial: 'user_reactions/user_reaction', collection: @bookmarked_comments, as: :user_reaction) %><%= j(paginate @bookmarked_comments, param_name: 'comments_page', params: {type: :Comment}, remote: true) %>");
