@@ -1,5 +1,6 @@
 class BasicYojisController < ApplicationController
   before_action :set_user_basic_yoji, only: %i[edit update destroy]
+  skip_before_action :require_login, only: %i[index]
 
   def index
     @q = BasicYoji.ransack(params[:q])
