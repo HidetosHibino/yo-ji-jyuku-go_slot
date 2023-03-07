@@ -1,6 +1,8 @@
 class SlotYojisController < ApplicationController
   before_action :set_users_slot_yoji, only: %i[edit update destroy]
   before_action :set_instances_at_show, only: %i[show]
+  before_action :alert_login, only: %i[confirm]
+  skip_before_action :require_login, only: %i[new confirm index]
 
   def index
     @q = SlotYoji.ransack(params[:q])

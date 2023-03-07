@@ -30,8 +30,14 @@
             <li><%= link_to t('.nav_bookmark_index'), bookmarks_path, class:"dropdown-item"%></li>
           </ul>
         </li>
-        <li class="nav-item" id="js-login_out-nav">
-          <%= render 'shared/login_status' %>
+        <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownLoginUserMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= image_tag current_user.avatar_url, class: 'img-circle elevation-2', size:'24x24' %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownLoginUserMenuLink">
+            <li><%= link_to t('.nav_profile'), profile_path(current_user), class:"dropdown-item"%></li>
+            <li><%= link_to t('defaults.logout'), logout_path, class: 'dropdown-item', method: :delete%><li>
+          </ul>
         </li>
       </ul>
     </div>

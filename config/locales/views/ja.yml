@@ -29,8 +29,15 @@ ja:
       nav_kanji_index: '漢字一覧'
       nav_bookmark_index: 'お気に入り一覧'
       nav_list_other: 'その他'
-    login_status:
       nav_profile: 'プロフィール確認'
+    before_login_header:
+      nav_top: '四字熟ロット'
+      nav_slot_new: 'スロット'
+      nav_slot_index: '四字熟ロット一覧'
+      nav_list_basic_yoji : '四字熟語'
+      nav_basic_index: '四字熟語一覧'
+      nav_basic_new: '四字熟語登録'
+      nav_list_other: 'その他'
   user_sessions:
     create:
       success: 'ログインしました'

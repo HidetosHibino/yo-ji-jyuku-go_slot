@@ -5,7 +5,7 @@
         <h4 class="card-title mt-sm-1 mt-lg-2 mb-sm-1 mb-lg-2 position-relative">
           <b><%= slot_yoji.decorate.jyukugo_mode %></b>
           <div class="position-absolute top-0 end-0 h6">
-            <% if current_user.own?(slot_yoji) %>
+            <% if current_user&.own?(slot_yoji) %>
               <%= render 'slot_yojis/crud_menus', { slot_yoji: slot_yoji } %>
             <% else %>
               <%= render 'bookmarks/bookmark_button', { bookmarkable: slot_yoji } %>
