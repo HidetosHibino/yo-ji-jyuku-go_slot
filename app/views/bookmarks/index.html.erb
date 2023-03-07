@@ -54,7 +54,7 @@
               <% if @bookmarked_meanings.present? %>
                 <div class="row">
                   <div class="col" id="bookmark-meaning">
-                    <%= render partial: 'user_reactions', collection: @bookmarked_meanings, as: :user_reaction %>
+                    <%= render partial: 'user_reactions/user_reaction', collection: @bookmarked_meanings, as: :user_reaction %>
                     <%= paginate @bookmarked_meanings, param_name: 'meanings_page', params: {type: :Meaning}, remote: true %>
                   </div>
                 </div>
@@ -66,7 +66,7 @@
               <% if @bookmarked_comments.present? %>
                 <div class="row">
                   <div class="col" id="bookmark-comments">
-                    <%= render partial: 'user_reactions', collection: @bookmarked_comments, as: :user_reaction %>
+                    <%= render partial: 'user_reactions/user_reaction', collection: @bookmarked_comments, as: :user_reaction %>
                     <%= paginate @bookmarked_comments, param_name: 'comments_page', params: {type: :Comment}, remote: true %>
                   </div>
                 </div>

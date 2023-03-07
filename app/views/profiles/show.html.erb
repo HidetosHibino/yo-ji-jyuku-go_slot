@@ -50,9 +50,7 @@
           </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <div class="row">
-            <%= render partial: 'user_reaction', collection: @meanings %>
-          </div>
+            <%= render partial: 'user_reactions/user_reaction', collection: @meanings %>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
           <%= render partial:'samples/sample', collection: @samples %>
