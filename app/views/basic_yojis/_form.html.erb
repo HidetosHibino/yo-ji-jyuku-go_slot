@@ -1,5 +1,6 @@
-<%= form_with model: basic_yoji, local: true do |f| %>
-  <%= render 'shared/error_messages', { object: f.object } %>
+<%= form_with model: basic_yojis_form, url: polymorphic_path(basic_yojis_form.basic_yoji), local: true do |f| %>
+  <%= render 'shared/error_messages', { object: f.object }  %> <%# form_objectのエラー %>
+  <%= render 'shared/error_messages', { object: f.object.basic_yoji } %> <%# basic_yojiのエラー(unipuness) %>
   <div class="form-group py-3">
     <%= f.label :name %>
     <%= f.text_field :name, class:'form-control' %>

@@ -17,6 +17,7 @@ ja:
       sample: '例文'
       meaning: '意味'
       comment: 'コメント'
+      basic_yojis_form: '四字熟語'
     attributes:
       user:
         name: 'ニックネーム'
@@ -35,8 +36,6 @@ ja:
         meaning: '意味'
         sound: '読み'
         name: '四字熟語'
-        # カラムとしてはないが画面表示のため
-        jyukugo: '熟語'
       slot_yoji:   
         first_kanji: '1文字目'
         second_kanji: '2文字目'
@@ -50,4 +49,7 @@ ja:
         body: '意味'
       comment:
         body: 'コメント'
+      basic_yojis_form:
+        name: '四字熟語'
+
 
