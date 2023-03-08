@@ -16,7 +16,7 @@
             <%= f.hidden_field :third_kanji_id, class: 'form-control' %>
             <%= f.hidden_field :fourth_kanji_id, class: 'form-control' %>
             <div class="mb-3">
-              <%= f.label :sound %>
+              <%= f.label :sound %><%= t('defaults.hiragana') %>
               <%= f.text_field :sound, class:'form-control', pattern:"[\u3041-\u3096]*" %>
             </div>
             <div class="mb-3">
