@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST_AUTH_METHOD=trust
+  rails:
+    build: .
+    command: bundle exec puma -C config/puma.rb -e production
+    volumes:
+      - .:/app
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+      - log-data:/var/log/nginx
+    depends_on:
+      - db
+  web:
+    build:
+      context: containers/nginx
+    volumes:
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - rails
+volumes:
+  public-data:
+  tmp-data:
+    driver: local
+  log-data:
+    driver: local
