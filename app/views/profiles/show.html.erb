@@ -46,14 +46,32 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <div class="row">
-            <%= render partial: 'slot_yojis/slot_yoji', collection: @slot_yojis %>
+            <% if @slot_yojis.present? %>
+              <%= render partial: 'slot_yojis/slot_yoji', collection: @slot_yojis %>
+            <% else %>
+              <div class="text-center">
+                <%= t('defaults.no_content') %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <% if @meanings.present? %>
             <%= render partial: 'user_reactions/user_reaction', collection: @meanings %>
+          <% else %>
+            <div class="text-center">
+              <%= t('defaults.no_content') %>
+            </div>
+          <% end %>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-          <%= render partial:'samples/sample', collection: @samples %>
+          <% if @samples.present? %>
+            <%= render partial:'samples/sample', collection: @samples %>
+          <% else %>
+            <div class="text-center">
+              <%= t('defaults.no_content') %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
