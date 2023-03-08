@@ -10,6 +10,7 @@ ja:
     nav_new: "新規作成"
     nav_kanji: 'この漢字の四字熟語をもっと見る'
     no_content: 'まだ投稿されていません'
+    hiragana: '(ひらがな)'
     message:
       require_login: 'ログインが必要です'
       created: "%{item}を投稿しました"

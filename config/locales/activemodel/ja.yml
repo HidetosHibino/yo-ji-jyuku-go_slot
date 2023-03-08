@@ -1,0 +1,18 @@
+ja:
+  activemodel:
+    errors:
+      models:
+        basic_yojis_form:
+          attributes:
+            name:
+              not_kanji_letter: 'に漢字でない文字が含まれています'
+    attributes:
+      basic_yojis_form:
+        name: '四字熟語'
+        sound: '読み（ひらがな）'
+        meaning: '意味'
+        first_kanji_letter: '1文字目'
+        second_kanji_letter: '2文字目'
+        third_kanji_letter: '3文字目'
+        fourth_kanji_letter: '4文字目'
+
