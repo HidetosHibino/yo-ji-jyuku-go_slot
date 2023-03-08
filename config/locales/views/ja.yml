@@ -102,7 +102,7 @@ ja:
       no_bookmark: 'お気に入りしているものがありません'
   profiles:
     show:
-      title: '📕プロフィール/アクテビティ📕'
+      title: '📕プロフィール＆アクテビティ📕'
       activity_header: '最新８件を表示しています'
     edit:
       title: '✏️プロフィール編集✏️'
