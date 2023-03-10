@@ -5,9 +5,9 @@ services:
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_HOST_AUTH_METHOD=trust
-  rails:
+  web:
     build: .
-    command: bundle exec puma -C config/puma.rb -e production
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0' -e production" 
     volumes:
       - .:/app
       - public-data:/app/public
@@ -15,19 +15,34 @@ services:
       - log-data:/var/log/nginx
     depends_on:
       - db
-  web:
-    build:
-      context: containers/nginx
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - web
+    restart: always
+    environment:
+      CLIENT_MAX_BODY_SIZE: 10M
+      DOMAINS: 'localhost -> http://web:3000'
+      STAGE: 'local'
+      # STAGE: 'production' # Don't use production until staging works
+      ERROR_LOG: default
+      ACCESS_LOG: default
     volumes:
       - public-data:/app/public
       - tmp-data:/app/tmp
-    ports:
-      - 80:80
+      - https-portal-data:/var/lib/https-portal 
+      - log-data:/var/log/nginx/
+      - log-data:/var/lib/logrotate/
     depends_on:
-      - rails
+      - web
 volumes:
   public-data:
   tmp-data:
     driver: local
   log-data:
+    driver: local
+  https-portal-data:
     driver: local

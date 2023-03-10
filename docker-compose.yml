@@ -7,10 +7,38 @@ services:
       - POSTGRES_HOST_AUTH_METHOD=trust
   web:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec puma -C config/puma.rb
     volumes:
       - .:/app
-    ports:
-      - "3000:3000"
+      - public-data:/app/public
+      - tmp-data:/app/tmp
+      - log-data:/var/log/nginx
     depends_on:
       - db
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    links:
+      - web
+    restart: always
+    environment:
+      DOMAINS: 'localhost -> http://web:3000'
+      STAGE: 'local'
+      # STAGE: 'production' # Don't use production until staging works
+      ERROR_LOG: default
+      ACCESS_LOG: default
+    volumes:
+      - https-portal-data:/var/lib/https-portal 
+      - log-data:/var/log/nginx/
+      - log-data:/var/lib/logrotate/
+
+volumes:
+  public-data:
+  tmp-data:
+    driver: local
+  log-data:
+    driver: local
+  https-portal-data:
+    driver: local
