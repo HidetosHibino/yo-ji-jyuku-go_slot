@@ -95,4 +95,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  # https://www.oiax.jp/rails/zakkan/testing_javascript_with_rspec_and_capybara.html
 end

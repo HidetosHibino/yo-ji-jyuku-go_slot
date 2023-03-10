@@ -55,7 +55,8 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'webdrivers'
+  # https://zenn.dev/felmy/articles/0f534f8f7bee49#:~:text=%2D%20%20%23%E3%80%8Cwebdrivers%E3%80%8D%E3%81%AF%E3%80%81Docker%E4%B8%8A%E3%81%A7%E3%81%AF%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%BE%E3%81%9B%E3%82%93%E3%80%82%EF%BC%88%E4%BB%A5%E5%89%8D%E3%81%AF%E3%80%81chromedriver%2Dhelper%E3%81%A8%E3%81%84%E3%81%86%E5%90%8D%E7%A7%B0%EF%BC%89
+  gem 'selenium-webdriver', '~> 3.142'
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 
