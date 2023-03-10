@@ -7,6 +7,9 @@ html {
   position: relative;
   min-height: 100%;
 }
+.header {
+  background-color: $yellow-200;
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
@@ -17,6 +20,7 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 48px;
+  background-color: $yellow-200;
 }
 .suggest_twitter:hover{
   cursor: pointer;
