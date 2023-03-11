@@ -11,7 +11,7 @@ class SlotYojisController < ApplicationController
 
   def new
     @slot_yoji = SlotYoji.new
-    @json_kanjis = Kanji.select(:id, :letter).all.sample(100).to_json
+    @json_kanjis = Kanji.select(:id, :letter).all.sample(160).to_json
   end
 
   def confirm
