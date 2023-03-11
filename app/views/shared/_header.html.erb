@@ -32,7 +32,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownLoginUserMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= image_tag current_user.avatar_url, class: 'img-circle elevation-2', size:'24x24' %>
+            <%= image_tag current_user.avatar_url, class: 'rounded-circle mr15', size:'24x24' %>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDarkDropdownLoginUserMenuLink">
             <li><%= link_to t('.nav_profile'), profile_path(current_user), class:"dropdown-item"%></li>

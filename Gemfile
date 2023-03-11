@@ -73,4 +73,6 @@ gem 'kaminari'
 gem 'ransack'
 gem 'carrierwave'
 gem 'mini_magick'
-gem "net-http"
+gem 'net-http'
+gem 'fog-aws'
+gem 'dotenv'
